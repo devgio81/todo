@@ -9,7 +9,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * @ApiResource
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TaskRepository")
  */
 class Task
 {
@@ -111,10 +111,13 @@ class Task
     }
 
     /**
-     * @param mixed $isDone
+     * @param bool $isDone
+     * @return $this
      */
-    public function setIsDone(bool $isDone): void
+    public function setIsDone(bool $isDone): self
     {
         $this->isDone = boolval($isDone);
+
+        return $this;
     }
 }
