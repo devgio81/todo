@@ -34,6 +34,7 @@ class Task
 
     /**
      * @ORM\Column(type="string", columnDefinition="ENUM('call', 'meeting' , 'misc')")
+     * @Assert\NotBlank()
      */
     public $type;
 
@@ -43,26 +44,6 @@ class Task
      */
     public $isDone;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="tasks")
-     */
-    private $user;
-
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-
-    /**
-     * @param mixed $user
-     */
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
-
-        return $this;
-    }
 
     /**
      * @return int|null
@@ -110,15 +91,15 @@ class Task
      */
     public function getType(): string
     {
-        return $this->title;
+        return $this->type;
     }
 
     /**
-     * @param string $title
+     * @param string $type
      */
-    public function setType(string $title): void
+    public function setType(string $type): void
     {
-        $this->title = $title;
+        $this->type = $type;
     }
 
     /**
