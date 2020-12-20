@@ -1,0 +1,6 @@
+App\Entity\Task:
+  task_{1..30}:
+    title: <sentence(4)>
+    description: <text()>
+    is_done: false
+    type: meeting
